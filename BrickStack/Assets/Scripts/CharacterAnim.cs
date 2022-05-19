@@ -13,7 +13,12 @@ public class CharacterAnim : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (transform.hasChanged)
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        Vector3 MovementDirection = new Vector3(horizontalInput, 0, verticalInput);
+        
+        if (MovementDirection != Vector3.zero)
         {
             Anim.SetBool("IsRunning", true);
         }
